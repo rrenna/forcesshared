@@ -1,1 +1,3 @@
-# forcesShared
+# MyLibrary
+
+A description of this package.
