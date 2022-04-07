@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  UpdateDeviceDTO.swift
 //  
 //
 //  Created by Ryan Renna on 2022-04-07.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct UpdateDevice: Codable {
+public struct UpdateDeviceDTO: Codable {
     
   public let id: UUID?
   public let pushToken: String?
