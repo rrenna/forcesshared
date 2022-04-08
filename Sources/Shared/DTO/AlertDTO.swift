@@ -11,11 +11,13 @@ public struct AlertDTO: Codable {
 
     public let id: UUID?
     public let name: String
-    public let latestURL: String
+    public let latestTitle: String?
+    public let latestURL: String?
     
-    public init(id: UUID?, name: String, latestURL: String) {
+    public init(id: UUID?, name: String, latestTitle: String?, latestURL: String?) {
         self.id = id
         self.name = name
+        self.latestTitle = latestTitle
         self.latestURL = latestURL
     }
 }
