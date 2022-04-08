@@ -15,7 +15,6 @@ public struct UpdateDeviceDTO: Codable {
   public let channels: [String]?
 
   public init(id: UUID? = nil, pushToken: String? = nil, osVersion: String, channels: [String]? = nil) {
-      
     self.id = id
     self.pushToken = pushToken
     self.osVersion = osVersion
