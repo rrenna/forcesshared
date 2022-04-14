@@ -10,14 +10,18 @@ import Foundation
 public struct ReportArmyDTO: Codable {
     
     public var name: String
-    public var deviceid: UUID
+    public var reporteruuid: UUID // A unique identifier for the reporter
+    public var deviceid: UUID? // Optional link to the device
+    public var source: String?
     public var gameSystemName: String
-    public var userInfo: [String: String]
+    public var metadata: [String: String]
     
-    public init(name: String, deviceid: UUID, gameSystemName: String, userInfo: [String : String]) {
+    public init(name: String, reporteruuid: UUID, deviceid: UUID?, source: String?, gameSystemName: String, metadata: [String : String]) {
         self.name = name
+        self.reporteruuid = reporteruuid
         self.deviceid = deviceid
+        self.source = source
         self.gameSystemName = gameSystemName
-        self.userInfo = userInfo
+        self.metadata = metadata
     }
 }
