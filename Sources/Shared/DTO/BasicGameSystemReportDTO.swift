@@ -13,6 +13,11 @@ public struct BasicGameSystemReportDTO: Codable {
     {
         public let value: Int
         public let hexColor: String?
+        
+        public init(value: Int, hexColor: String?) {
+            self.value = value
+            self.hexColor = hexColor
+        }
     }
     
     public var reportType: String
