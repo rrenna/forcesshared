@@ -9,7 +9,7 @@ import Foundation
 
 public struct BasicGameSystemReportDTO: Codable {
     
-    public struct ReportItem
+    public struct ReportItem: Codable
     {
         let value: Int
         let hexColor: String?
