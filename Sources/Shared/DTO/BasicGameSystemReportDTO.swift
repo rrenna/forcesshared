@@ -9,10 +9,16 @@ import Foundation
 
 public struct BasicGameSystemReportDTO: Codable {
     
+    public struct ReportItem
+    {
+        let value: Int
+        let hexColor: String?
+    }
+    
     public var reportType: String
     public var gameSystemName: String
     public var date: Date
-    public var results: [String: Int]
+    public var results: [String: ReportItem]
     
     public init(reportType: String, gameSystemName: String, date: Date, results: [String : Int]) {
         
