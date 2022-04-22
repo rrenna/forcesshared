@@ -11,8 +11,8 @@ public struct BasicGameSystemReportDTO: Codable {
     
     public struct ReportItem: Codable
     {
-        let value: Int
-        let hexColor: String?
+        public let value: Int
+        public let hexColor: String?
     }
     
     public var reportType: String
