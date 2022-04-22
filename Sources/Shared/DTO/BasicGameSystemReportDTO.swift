@@ -20,7 +20,7 @@ public struct BasicGameSystemReportDTO: Codable {
     public var date: Date
     public var results: [String: ReportItem]
     
-    public init(reportType: String, gameSystemName: String, date: Date, results: [String : Int]) {
+    public init(reportType: String, gameSystemName: String, date: Date, results: [String: ReportItem]) {
         
         self.reportType = reportType
         self.gameSystemName = gameSystemName
