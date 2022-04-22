@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct BasicGameSystemReport: Codable {
+public struct BasicGameSystemReportDTO: Codable {
     
     public var reportType: String
     public var gameSystemName: String
