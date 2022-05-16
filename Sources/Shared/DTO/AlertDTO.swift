@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct AlertDTO: Codable {
+public struct AlertDTO: Codable, Identifiable {
 
     public let id: UUID?
     public let name: String
