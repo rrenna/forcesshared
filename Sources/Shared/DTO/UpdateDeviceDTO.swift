@@ -12,7 +12,7 @@ public struct UpdateDeviceDTO: Codable {
     public let id: UUID?
     public let pushToken: String?
     public let firebasePushToken: String?
-    public let osName: String = "ios"
+    public var osName: String = "ios"
     public let osVersion: String
     public let channels: [String]?
     public let regionCode: String?
