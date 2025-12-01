@@ -28,3 +28,12 @@ public struct ThumbnailUnitRequestDTO: Codable {
         self.gameSystemId = gameSystemId
     }
 }
+
+public struct ThumbnailSearchResponseDTO: Codable {
+
+    public let results: [ThumbnailResultDTO]
+
+    public init(results: [ThumbnailResultDTO]) {
+        self.results = results
+    }
+}
