@@ -14,13 +14,19 @@ public struct CreateAlertDTO: Codable {
     public let group: String?
     public let rssURL: String
     public let keywords: [String]
-    
-    public init(name: String, value: String, group: String?, rssURL: String, keywords: [String]) {
-        
+    public let thumbnailURL: String?
+    public let headerImageURL: String?
+    public let steamGameURL: String?
+
+    public init(name: String, value: String, group: String?, rssURL: String, keywords: [String], thumbnailURL: String? = nil, headerImageURL: String? = nil, steamGameURL: String? = nil) {
+
         self.name = name
         self.value = value
         self.rssURL = rssURL
         self.group = group
         self.keywords = keywords
+        self.thumbnailURL = thumbnailURL
+        self.headerImageURL = headerImageURL
+        self.steamGameURL = steamGameURL
     }
 }
