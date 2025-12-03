@@ -16,8 +16,11 @@ public struct AlertDTO: Codable, Identifiable {
     public let latestURL: String?
     public let group: String?
     public let dateLastUpdated: Date?
+    public let thumbnailURL: String?
+    public let headerImageURL: String?
+    public let steamGameURL: String?
 
-    public init(id: UUID?, name: String, value: String?, latestTitle: String?, latestURL: String?, group: String?, dateLastUpdated: Date?) {
+    public init(id: UUID?, name: String, value: String?, latestTitle: String?, latestURL: String?, group: String?, dateLastUpdated: Date?, thumbnailURL: String? = nil, headerImageURL: String? = nil, steamGameURL: String? = nil) {
         self.id = id
         self.name = name
         self.value = value
@@ -25,5 +28,8 @@ public struct AlertDTO: Codable, Identifiable {
         self.latestURL = latestURL
         self.group = group
         self.dateLastUpdated = dateLastUpdated
+        self.thumbnailURL = thumbnailURL
+        self.headerImageURL = headerImageURL
+        self.steamGameURL = steamGameURL
     }
 }
