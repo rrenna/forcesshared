@@ -17,8 +17,10 @@ public struct CreateAlertDTO: Codable {
     public let thumbnailURL: String?
     public let headerImageURL: String?
     public let steamGameURL: String?
+    public let relatedGameSystems: [String]?
+    public let repositoryURL: String?
 
-    public init(name: String, value: String, group: String?, rssURL: String, keywords: [String], thumbnailURL: String? = nil, headerImageURL: String? = nil, steamGameURL: String? = nil) {
+    public init(name: String, value: String, group: String?, rssURL: String, keywords: [String], thumbnailURL: String? = nil, headerImageURL: String? = nil, steamGameURL: String? = nil, relatedGameSystems: [String]? = nil, repositoryURL: String? = nil) {
 
         self.name = name
         self.value = value
@@ -28,5 +30,7 @@ public struct CreateAlertDTO: Codable {
         self.thumbnailURL = thumbnailURL
         self.headerImageURL = headerImageURL
         self.steamGameURL = steamGameURL
+        self.relatedGameSystems = relatedGameSystems
+        self.repositoryURL = repositoryURL
     }
 }
