@@ -7,7 +7,11 @@
 
 import Foundation
 
-public struct BasicGameSystemReportDTO: Codable {
+public struct BasicGameSystemReportDTO: Codable, Identifiable {
+
+    public var id: String {
+        return "\(reportType)-\(gameSystemName)"
+    }
     
     public struct ReportItem: Codable
     {
@@ -25,13 +29,15 @@ public struct BasicGameSystemReportDTO: Codable {
     public var date: Date
     public var results: [String: ReportItem]
     public var latestMetaReport: MetaReportDTO?
+    public var title: String?
 
-    public init(reportType: String, gameSystemName: String, date: Date, results: [String: ReportItem], latestMetaReport: MetaReportDTO? = nil) {
+    public init(reportType: String, gameSystemName: String, date: Date, results: [String: ReportItem], latestMetaReport: MetaReportDTO? = nil, title: String? = nil) {
 
         self.reportType = reportType
         self.gameSystemName = gameSystemName
         self.date = date
         self.results = results
         self.latestMetaReport = latestMetaReport
+        self.title = title
     }
 }
