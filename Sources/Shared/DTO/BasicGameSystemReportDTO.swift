@@ -30,8 +30,9 @@ public struct BasicGameSystemReportDTO: Codable, Identifiable {
     public var results: [String: ReportItem]
     public var latestMetaReport: MetaReportDTO?
     public var title: String?
+    public var milestones: [MilestoneDTO]
 
-    public init(reportType: String, gameSystemName: String, date: Date, results: [String: ReportItem], latestMetaReport: MetaReportDTO? = nil, title: String? = nil) {
+    public init(reportType: String, gameSystemName: String, date: Date, results: [String: ReportItem], latestMetaReport: MetaReportDTO? = nil, title: String? = nil, milestones: [MilestoneDTO] = []) {
 
         self.reportType = reportType
         self.gameSystemName = gameSystemName
@@ -39,5 +40,6 @@ public struct BasicGameSystemReportDTO: Codable, Identifiable {
         self.results = results
         self.latestMetaReport = latestMetaReport
         self.title = title
+        self.milestones = milestones
     }
 }
