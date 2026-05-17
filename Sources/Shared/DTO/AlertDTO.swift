@@ -23,10 +23,11 @@ public struct AlertDTO: Codable, Identifiable {
     public let keywords: [String]?
     public let relatedGameSystems: [String]?
     public let repositoryURL: String?
+    public let repositoryTrackCommits: Bool?
     public let lastParseError: String?
     public let lastParseErrorDate: Date?
 
-    public init(id: UUID?, name: String, value: String?, latestTitle: String?, latestURL: String?, group: String?, dateLastUpdated: Date?, thumbnailURL: String? = nil, headerImageURL: String? = nil, steamGameURL: String? = nil, rssURL: String? = nil, keywords: [String]? = nil, relatedGameSystems: [String]? = nil, repositoryURL: String? = nil, lastParseError: String? = nil, lastParseErrorDate: Date? = nil) {
+    public init(id: UUID?, name: String, value: String?, latestTitle: String?, latestURL: String?, group: String?, dateLastUpdated: Date?, thumbnailURL: String? = nil, headerImageURL: String? = nil, steamGameURL: String? = nil, rssURL: String? = nil, keywords: [String]? = nil, relatedGameSystems: [String]? = nil, repositoryURL: String? = nil, repositoryTrackCommits: Bool? = nil, lastParseError: String? = nil, lastParseErrorDate: Date? = nil) {
         self.id = id
         self.name = name
         self.value = value
@@ -41,6 +42,7 @@ public struct AlertDTO: Codable, Identifiable {
         self.keywords = keywords
         self.relatedGameSystems = relatedGameSystems
         self.repositoryURL = repositoryURL
+        self.repositoryTrackCommits = repositoryTrackCommits
         self.lastParseError = lastParseError
         self.lastParseErrorDate = lastParseErrorDate
     }

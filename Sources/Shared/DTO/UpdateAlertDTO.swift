@@ -19,8 +19,9 @@ public struct UpdateAlertDTO: Codable {
     public let steamGameURL: String?
     public let relatedGameSystems: [String]?
     public let repositoryURL: String?
+    public let repositoryTrackCommits: Bool?
 
-    public init(name: String? = nil, value: String? = nil, group: String? = nil, rssURL: String? = nil, keywords: [String]? = nil, thumbnailURL: String? = nil, headerImageURL: String? = nil, steamGameURL: String? = nil, relatedGameSystems: [String]? = nil, repositoryURL: String? = nil) {
+    public init(name: String? = nil, value: String? = nil, group: String? = nil, rssURL: String? = nil, keywords: [String]? = nil, thumbnailURL: String? = nil, headerImageURL: String? = nil, steamGameURL: String? = nil, relatedGameSystems: [String]? = nil, repositoryURL: String? = nil, repositoryTrackCommits: Bool? = nil) {
         self.name = name
         self.value = value
         self.group = group
@@ -31,5 +32,6 @@ public struct UpdateAlertDTO: Codable {
         self.steamGameURL = steamGameURL
         self.relatedGameSystems = relatedGameSystems
         self.repositoryURL = repositoryURL
+        self.repositoryTrackCommits = repositoryTrackCommits
     }
 }
