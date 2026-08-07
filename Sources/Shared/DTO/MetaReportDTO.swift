@@ -15,13 +15,15 @@ public struct MetaReportDTO: Codable {
     public let dateRangeEnd: Date
     public let body: String
     public let gameSystemName: String
+    public let model: String?
 
-    public init(id: UUID, date: Date, dateRangeStart: Date, dateRangeEnd: Date, body: String, gameSystemName: String) {
+    public init(id: UUID, date: Date, dateRangeStart: Date, dateRangeEnd: Date, body: String, gameSystemName: String, model: String? = nil) {
         self.id = id
         self.date = date
         self.dateRangeStart = dateRangeStart
         self.dateRangeEnd = dateRangeEnd
         self.body = body
         self.gameSystemName = gameSystemName
+        self.model = model
     }
 }
