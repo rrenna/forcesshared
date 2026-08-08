@@ -12,9 +12,14 @@
 
 import Foundation
 
-public struct MilestonesJobStatusDTO: Codable {
+/// `Sendable` is declared here rather than picked up retroactively: the
+/// server hands this value between concurrency domains while a scan runs,
+/// and Vapor's `Content` conformance (added server-side) implies `Sendable`
+/// anyway — declaring it at the source keeps that from being a retroactive
+/// conformance, which is an error in the Swift 6 language mode.
+public struct MilestonesJobStatusDTO: Codable, Sendable {
 
-    public enum State: String, Codable {
+    public enum State: String, Codable, Sendable {
         case idle
         case running
         case completed
@@ -23,7 +28,7 @@ public struct MilestonesJobStatusDTO: Codable {
 
     /// How this run was started — the portal/admin "Run Now" button, or the
     /// daily scheduled pass.
-    public enum Trigger: String, Codable {
+    public enum Trigger: String, Codable, Sendable {
         case scheduled
         case manual
     }
