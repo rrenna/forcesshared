@@ -74,19 +74,55 @@ public struct PortalUserStatsDTO: Codable, Sendable {
     /// null/empty platform is bucketed under "unknown" rather than dropped,
     /// so `deviceCount` always equals the sum of these values.
     public let devicesByPlatform: [String: Int]
+    /// The linked devices themselves, so the portal's platform rows can
+    /// expand to the specific device IDs. Same "unknown" platform bucketing
+    /// as `devicesByPlatform`. Defaults empty for wire compatibility with
+    /// older backends.
+    public let devices: [PortalUserDeviceDTO]
 
     public init(
         reportedArmyCount: Int,
         gameSystemBreakdown: [String: Int],
         lastReportedAt: Date? = nil,
         deviceCount: Int,
-        devicesByPlatform: [String: Int]
+        devicesByPlatform: [String: Int],
+        devices: [PortalUserDeviceDTO] = []
     ) {
         self.reportedArmyCount = reportedArmyCount
         self.gameSystemBreakdown = gameSystemBreakdown
         self.lastReportedAt = lastReportedAt
         self.deviceCount = deviceCount
         self.devicesByPlatform = devicesByPlatform
+        self.devices = devices
+    }
+
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        reportedArmyCount = try container.decode(Int.self, forKey: .reportedArmyCount)
+        gameSystemBreakdown = try container.decode([String: Int].self, forKey: .gameSystemBreakdown)
+        lastReportedAt = try container.decodeIfPresent(Date.self, forKey: .lastReportedAt)
+        deviceCount = try container.decode(Int.self, forKey: .deviceCount)
+        devicesByPlatform = try container.decode([String: Int].self, forKey: .devicesByPlatform)
+        devices = try container.decodeIfPresent([PortalUserDeviceDTO].self, forKey: .devices) ?? []
+    }
+}
+
+/// One linked device on a user's portal detail page. `lastSeenMillis` is
+/// epoch millis (like the analytics version DTOs) so JS can render it with
+/// `new Date(n)` regardless of the server's JSON date strategy.
+public struct PortalUserDeviceDTO: Codable, Sendable, Identifiable {
+    public let id: String
+    public let platform: String
+    public let osVersion: String?
+    public let appVersion: String?
+    public let lastSeenMillis: Int?
+
+    public init(id: String, platform: String, osVersion: String?, appVersion: String?, lastSeenMillis: Int?) {
+        self.id = id
+        self.platform = platform
+        self.osVersion = osVersion
+        self.appVersion = appVersion
+        self.lastSeenMillis = lastSeenMillis
     }
 }
 
